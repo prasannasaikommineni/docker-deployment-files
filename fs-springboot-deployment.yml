@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fs-hello-deployment
+  labels:
+    app: fullstack-sb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fullstack-sb
+  template:
+    metadata:
+      labels:
+        app: fullstack-sb
+    spec:
+      containers:
+      - name: fullstack-sb
+        image: docker950/fullstack-sb
+        # ports:
+        # - containerPort: 8080

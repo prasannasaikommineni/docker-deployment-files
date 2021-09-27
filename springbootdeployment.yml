@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+  labels:
+    app: prasanna-sb-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prasanna-sb-docker
+  template:
+    metadata:
+      labels:
+        app: prasanna-sb-docker
+    spec:
+      containers:
+      - name: prasanna-sb-docker
+        image: prasanna-sb-docker
+        imagePullPolicy: Always     
+        ports:
+        - containerPort: 80

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment-as
+  labels:
+    app: sb-autoscale
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sb-autoscale
+  template:
+    metadata:
+      labels:
+        app: sb-autoscale
+    spec:
+      containers:
+      - name: springboot-ro-dock
+        image: docker950/sb-autoscale:1.0
+        # ports:
+        # - containerPort: 8080

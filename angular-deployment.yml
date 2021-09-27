@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-deployment
+  labels:
+    app: fullstack-angular
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fullstack-angular
+  template:
+    metadata:
+      labels:
+        app: fullstack-angular
+    spec:
+      containers:
+      - name: fullstack-angular
+        image: docker950/fullstack-angular
+
+        # ports:
+        # - containerPort: 8080

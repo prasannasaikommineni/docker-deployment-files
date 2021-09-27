@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment-ro
+  labels:
+    app: springboot-ro-dock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-ro-dock
+  template:
+    metadata:
+      labels:
+        app: springboot-ro-dock
+    spec:
+      containers:
+      - name: springboot-ro-dock
+        image: docker950/springboot-ro-dock:2.0
+        # ports:
+        # - containerPort: 8080
